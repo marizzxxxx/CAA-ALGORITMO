@@ -1,0 +1,17 @@
+def algrt(S, x):
+  
+  S.sort()
+  
+  for i in range(len(S)):
+    j = bisect.bisect_left(S, x - S[i])
+    if j < len(S) and S[j] == x - S[i]:
+      
+      return True
+      
+  return False
+
+# O algoritmo funciona da seguinte forma:
+# 1. Ordena os elementos de S. 
+# 2. Itera sobre os elementos de S, procurando um par cujos elementos somam x. 
+# 3. Para cada elemento i de S, procura o complemento de x no resto do conjunto.
+# 4. Se o complemento foi encontrado, então existem dois elementos em S cuja soma é exatamente x.
